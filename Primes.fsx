@@ -2,6 +2,7 @@
 // squqreroot of a integer
 let intsqrt n = (int << sqrt << float) n
 
+
 let rec IsPrime p = function
     | []                           -> true
     | x :: _  when x > (intsqrt p) -> true
