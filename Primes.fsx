@@ -16,9 +16,9 @@ let NthPrimes n =                                   // function which takes an i
                     p::acc                          // if p is a prime it is added to the accumulator list acc.
                 else acc)                           // if p is not a prime, simply skips it.
         [] (2::[for i in 1 .. n -> 2 * i + 1]))     // input to line 13.
-        // in F# the last calculation is the result, so since the List.fold returns a list of primes given to List.rev
-        // List.rev's result are the output of NthPrimes.
+        // in F# the last calculation is the result, so since the List.fold returns a list of primes send it to List.rev.
+        // The List.rev's result are the output of NthPrimes.
         
 // A predefined function which revers a list (here the result so that the primes are sortet in increasing order).
 // A predefined function which takes a accumualor function.
-// 
+
