@@ -335,7 +335,7 @@ type 'M Matrix =
                 
                 | _ ->
                     // since we either has M1^T * M2 or M1 * M2^T we then only
-                    // need to transpose and change order to get one of the first to cases.
+                    // need to transpose one of them and change multiplication order to get one of the first two cases.
                     M2 * Matrix<'b>.Transpose M1 
                     
         
