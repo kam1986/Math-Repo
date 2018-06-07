@@ -369,7 +369,8 @@ type 'M Matrix =
                 sprintf "\n%s" (col m)
             
             | T(m, _, _) ->
-                let rec row = function
+                let rec row m =
+                    match m with
                     | Leaf -> ""
                     | _    -> sprintf "%s %s" (m.Key.Value.ToString()) (row m.Left)
 
@@ -382,3 +383,4 @@ type 'M Matrix =
 
 
 
+let m33 = Matrix<int>.build [[1;2;3];[4;5;6];[7;8;9]]
