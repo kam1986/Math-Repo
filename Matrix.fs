@@ -24,14 +24,15 @@ type 'M Matrix =
     | T of 'M Tree * int * int // carrier for a transposed matrix
     // Because we carry we can transpose a matrix in constant time.
     // all operations are still in the same time as for normal matrices.
-    with 
+    with
+        // build a matrix from a list of list 
         static member build (lst : 'b list list) =
                 let rec row = function
-                    | ([], _)                       -> Leaf
+                    | ([], _)                      -> Leaf
                     | (x::xs, submatrix : 'b Tree) -> Node(submatrix, x, row (xs, submatrix.Right))
     
                 let rec col = function
-                    | ([], _)                        -> Leaf
+                    | ([], _)                       -> Leaf
                     | (x::xs, submatrix : 'b Tree ) -> row (x, col (xs, submatrix.Right))
     
                 M (col (lst, Leaf), lst.Length, lst.Head.Length)     
